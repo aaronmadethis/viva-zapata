@@ -1,0 +1,32 @@
+{% assign page = pages.frontpage %}
+
+<div class="rte index-page hero row">
+	<div class="col-xs-8 promo-left" style="background-image: url( {{ 'promo-left.jpg' | asset_url }} )">
+		<div class="interior">
+			<h1 class="coolheader">Color in a Clutch</h1>
+			<p>Simple assorted mixed colors clutch with contrast piping. Perfect for spring.</p>
+			<div class="button"><a href="">Shop the Collection</a></div>
+		</div>
+	</div>
+	<div class="col-xs-4 promo-right">
+		<div class="top">
+			<div style="background-image: url( {{ 'promo-right-top.jpg' | asset_url }} )">
+				<div class="inside"><span>Our Story</span></div>
+			</div>
+		</div>
+		<div class="bottom">
+			<div style="background-image: url( {{ 'promo-right-bottom.jpg' | asset_url }} )">
+				<div class="inside"><span>Be Inspired</span></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% assign collection = collections.new-arrivals %}
+<div class="container collection_4up no-price">
+	<div class="center"><img src="{{ 'decoration-leaf.svg' | asset_url }}"></div>
+	<h2>New Arrivals</h2>
+		{% for product in collection.products limit:4  %}
+			{% include 'product-loop' %}
+		{% endfor %}
+</div>

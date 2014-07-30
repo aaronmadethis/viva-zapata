@@ -1,0 +1,58 @@
+{% paginate collection.products by 16 %}
+
+<div class="container collection">
+	<div class="row extra">
+		<div class="icon-top"></div>
+
+		{% include 'breadcrumb' %}
+		<h2>{{ collection.title }}</h2>
+
+		{% if paginate.pages > 1 %}
+			<div class="pagination">
+				{% if paginate.previous.is_link %}
+				    <a href="{{ paginate.previous.url }}">{{ paginate.previous.title }}</a>
+				{% endif %}
+
+				<span>{{ paginate.current_page }}</span>
+				<span>&nbsp;of&nbsp;</span>
+				<span>{{ paginate.pages }}</span>
+
+				{% if paginate.next.is_link %}
+				    <a href="{{ paginate.next.url }}">{{ paginate.next.title }}</a>
+				{% endif %}
+			</div>
+		{% endif %}
+
+		{% include 'collection-sorting' %}
+	</div>
+
+	<div class="row grid">
+		<div class="collection-desc rte">
+			{{ collection.description }}
+		</div>
+		{% for product in collection.products %}
+			{% include 'product-loop' %}
+		{% endfor %}
+	</div>
+	
+	<div class="info-bottom left-10">
+		{% if paginate.pages > 1 %}
+			<div class="pagination">
+				{% if paginate.previous.is_link %}
+				    <a href="{{ paginate.previous.url }}">{{ paginate.previous.title }}</a>
+				{% endif %}
+
+				<span>{{ paginate.current_page }}</span>
+				<span>&nbsp;of&nbsp;</span>
+				<span>{{ paginate.pages }}</span>
+
+				{% if paginate.next.is_link %}
+				    <a href="{{ paginate.next.url }}">{{ paginate.next.title }}</a>
+				{% endif %}
+			</div>
+		{% endif %}
+	</div>
+
+</div>
+
+{% endpaginate %}

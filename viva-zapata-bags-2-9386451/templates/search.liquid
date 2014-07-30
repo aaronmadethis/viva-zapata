@@ -1,0 +1,57 @@
+{% paginate search.results by 20 %}
+<div class="search-page container {{ template }}">
+	<div class="row extra">
+		<h2>Search</h2>
+		<div class="search-form">
+		<form action="/search" method="get" role="search">
+			<p>
+				<input type="text" name="q" value="{{ search.terms | escape }}" />
+				<input type="submit" value="Search store" class="btn" />
+			</p>
+		</form>
+		</div>
+
+		{% if search.performed %}    
+				{% if search.results_count == 0 %}  
+					<div class="no-results">Your search for <span>"{{ search.terms }}"</span> did not yield any results.</div>              
+				{% else %}  
+					{% for item in search.results %}      
+						<div class="search-result clearfix">
+							{% if item.featured_image %}
+								<div class="product-thumb col-xs-1">
+									<a href="{{ item.url }}" title="{{ item.title | escape }}">
+										{{ item.featured_image.src | product_img_url: 'medium' | img_tag: item.featured_image.alt }}
+									</a>
+								</div>
+								<div class="search-text col-xs-11">
+									<h3>{{ item.title | link_to: item.url }}</h3>
+									<p>{{ item.content | strip_html | truncatewords: 40 | highlight: search.terms }}<p>
+								</div>
+							{% else %}
+								<div class="col-xs-12">{{ item.content | strip_html | truncatewords: 40 | highlight: search.terms }}</div>
+							{% endif %}
+						</div>
+						{% endfor %}
+				{% endif %}
+		{% endif %}
+
+
+		{% if paginate.pages > 1 %}
+			<div class="pagination">
+				{% if paginate.previous.is_link %}
+				    <a href="{{ paginate.previous.url }}">{{ paginate.previous.title }}</a>
+				{% endif %}
+
+				<span>{{ paginate.current_page }}</span>
+				<span>&nbsp;of&nbsp;</span>
+				<span>{{ paginate.pages }}</span>
+
+				{% if paginate.next.is_link %}
+				    <a href="{{ paginate.next.url }}">{{ paginate.next.title }}</a>
+				{% endif %}
+			</div>
+		{% endif %}
+
+	</div> <!-- end of row -->
+</div> <!-- end of container -->
+{% endpaginate %}

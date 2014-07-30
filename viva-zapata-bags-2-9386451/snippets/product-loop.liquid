@@ -1,0 +1,22 @@
+<div class="product col-xs-3 {% cycle 'p1','p2','p3','p4' %}">
+	<div class="product-thumb">
+		<a href="{{ product.url | within: collection }}">
+			<img src="{{ product.featured_image.src | product_img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}" />
+		</a>
+	</div>
+	<div class="product-title">
+	    	<h3>{{ product.type }}</h3>
+	    	<h4>{{ product.title }}</h4>
+	    	{% if template == 'collection' or template == 'product' %}
+		    	<h4 class="product-price">
+					{% if product.price_varies %}From{% endif %}
+					{{ product.price | money }}
+				</h4>
+			{% endif %}
+	</div>
+	<div class="button shop">
+		<a href="{{ product.url | within: collection }}">
+			Shop Now
+		</a>
+	</div>
+</div>

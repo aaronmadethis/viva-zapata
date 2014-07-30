@@ -1,0 +1,53 @@
+{% paginate collections by 10 %}
+
+{% include 'breadcrumb' %}
+
+<div class="clearfix">
+	{% if collections.size > 0 %}
+		<h2>Collections</h2>
+		{% for collection in collections %}
+			{% if collection.handle == 'frontpage' or collection.handle == 'new-arrivals' %}
+			
+			{% else %}
+				<div class="product left {% cycle 'one','two','three','four' %}">
+					<div class="product-thumb">
+						<a href="{{ collection.url  }}">
+							{% if collection.image %}
+								{{ collection.image.src | collection_img_url: 'medium' | img_tag: collection_title }}
+							{% else %}
+								{{ collection.products.first.featured_image | product_img_url: 'medium' | img_tag: collection_title }}
+							{% endif %}
+						</a>
+					</div>
+					<div class="product-title">
+						<a href="{{ collection.url}}">
+							{{ collection.title }}
+						</a>
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+	{% else %}
+		<p>You have no collections!</p>
+	{% endif %}
+</div>
+
+{% if paginate.pages > 1 %}
+	<div class="pagination">
+		{% if paginate.previous.is_link %}
+		    <a href="{{ paginate.previous.url }}">{{ paginate.previous.title }}</a>
+		{% endif %}
+
+		<span>{{ paginate.current_page }}</span>
+		<span>&nbsp;of&nbsp;</span>
+		<span>{{ paginate.pages }}</span>
+
+		{% if paginate.next.is_link %}
+		    <a href="{{ paginate.next.url }}">{{ paginate.next.title }}</a>
+		{% endif %}
+		
+
+	</div>
+{% endif %}
+
+{% endpaginate %}

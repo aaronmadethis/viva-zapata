@@ -1,0 +1,100 @@
+<div class="product-page container {{ template }}">
+
+	<div class="row extra">
+		<div class="icon-top col-xs-12 {{ product.type | handleize }}"></div>
+
+		<div class="product-details col-xs-6">
+
+			{% include 'breadcrumb' %}
+
+			<h2 class="product-header col-xs-10">
+				{% assign collsize = product.collections | size %}
+				{% if collsize == 1 %}
+					{% for collection in product.collections %}
+						{{ collection.title }}
+					{% endfor %}
+				{% else %}
+					{{ product.type }}
+				{% endif %}
+				<div>
+					<div>{{ product.title }}</div>
+					<div class="price-field">{{ product.price | money }}</div>
+				</div>
+			</h2>
+			<div class="product-desc rte col-xs-10">{{ product.description}}</div>
+			<form action="/cart/add" method="post" class="product-form col-xs-10">
+				<div class="product-variants">
+
+					{% assign varsize = product.variants | size %}
+
+					{% if varsize == 1 %}
+						{% assign variant = product.variants[0] %}
+						<input name="id" type="hidden" value="{{ variant.id }}">
+						{% else %}
+							<select id="product-select" name="id">
+								{% for variant in product.variants %}
+									<option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+								{% endfor %}
+							</select>
+					{% endif %}
+				</div>
+				<input type="submit" name="add" value="Add to Cart" class="btn" />
+			</form>
+
+			<div class="share col-xs-10">
+				<span>SHARE</span>
+				<a class="twitter popup" href="http://twitter.com/share?">Twitter</a>
+				<a class="facebook" target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=300')" href="http://facebook.com/sharer.php?u={{ shop.url }}{{ product.url }} ?>" >>Facebook</a>
+				<a class="google" onclick="popUp=window.open('https://plus.google.com/share?url={{ shop.url }}{{ product.url }}', 'popupwindow', 'scrollbars=yes,width=800,height=400');popUp.focus();return false">>Google Plus</a>
+			</div>
+		</div>
+
+		<div class="product-images col-xs-6">
+			<div class="product-featured-image col-xs-11">
+				<img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
+			</div>
+			<div class="product-img-list col-xs-11">
+				{% for image in product.images | offset:1 %}       
+					<div class="product-img left {% cycle '','','last' %}">
+						<a href="{{ image.src | product_img_url: 'original' }}">
+							<img src="{{ image.src | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" />
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div> <!-- end of row -->
+
+	<div class="row related-products collection_4up left smaller">
+		{% include 'related-products' %}
+	</div>
+
+</div><!-- end of container -->
+<script type="text/javascript">
+
+	// <![CDATA[  
+var selectCallback = function(variant, selector) {
+	if (variant && variant.available == true) {
+		// selected a valid variant
+		jQuery('.purchase').removeClass('disabled').removeAttr('disabled'); // remove unavailable class from add-to-cart button, and re-enable button
+		jQuery('.price-field').html(Shopify.formatMoney(variant.price, "{{shop.money_with_currency_format}}"));  // update price field
+	} else {
+		// variant doesn't exist
+		jQuery('.purchase').addClass('disabled').attr('disabled', 'disabled');      // set add-to-cart button to unavailable class and disable button
+		var message = variant ? "Sold Out" : "Unavailable";    
+		jQuery('.price-field').text(message); // update price-field message
+	}
+};
+
+// initialize multi selector for product
+jQuery(function() {
+	if( $('#product-select').length > 0){
+		new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
+		jQuery('.selector-wrapper').addClass('clearfix');
+		{% if product.options.size == 1 %}
+			jQuery('.selector-wrapper').prepend("<label for='product-select-option-0'>{{ product.options.first }}</label>");
+		{% endif %}
+	}
+});
+// ]]>
+</script>

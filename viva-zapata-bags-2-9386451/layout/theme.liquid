@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+	<!-- Basic page needs ================================================== -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<!-- Title and description ================================================== -->
+	<title>
+	{{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+	</title>
+
+	{% if page_description %}
+	<meta name="description" content="{{ page_description | escape }}">
+	{% endif %}
+
+ 	<!-- Product meta ================================================== -->
+ 	{% include 'fb-open-graph-tags' %}
+ 	{% include 'twitter-card' %}
+
+ 	<!-- Helpers ================================================== -->
+ 	<link rel="canonical" href="{{ canonical_url }}">
+ 	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+ 	<!-- Header hook for plugins ================================================== -->
+	{{ content_for_header }}
+	
+	<!--[if lt IE 9]>
+	{{ '//html5shiv.googlecode.com/svn/trunk/html5.js' | script_tag }}
+	<![endif]-->
+
+	{{ "bootstrap.min.css" | asset_url | stylesheet_tag }}
+	{{ "style.css" | asset_url | stylesheet_tag }}
+	
+	{{ "option_selection.js" | shopify_asset_url | script_tag }}
+	{{ "shopify_common.js" | shopify_asset_url | script_tag }}
+	{{ "customer_area.js"  | shopify_asset_url | script_tag }}
+	{{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' | script_tag }}
+	{{ "jquery-color.js"  | asset_url | script_tag }}
+
+	<script type="text/javascript" src="//use.typekit.net/wbv4rng.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+</head>
+<body>
+<div id="all-wrapper">
+	<div class="container">
+
+		<div class="toolbar-wrapper row">
+			<div class="col-xs-12">
+
+				<div class="utility clearfix">
+
+					<div class="header-search float-right">
+						<a href="/search">Search</a>
+					</div> 
+
+					<div class="cart-info float-right">
+						Cart: <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }}</a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+
+		<div class="header-wrapper row">
+			<h1 class="logo"><a href="/">{{ shop.name }}</a></h1>
+
+			<nav class="main-menu col-xs-12">
+				<div class="inside-rule"></div>
+			 	<ul class="clearfix">
+					{% for link in linklists.main-menu.links %}
+						<li class="{{ link.title | downcase }} {% if link.active %}current{% endif %}" ><a href="{{ link.url }}">{{ link.title }}</a></li>
+					{% endfor %}
+				</ul>
+			</nav>
+
+			<nav class="shop-menu col-xs-12">
+				<div class="nav-wrap">
+					{% include 'site-nav' %}
+				</div>
+			</nav>
+		</div>
+	</div>
+
+
+	<div id="main-wrapper">
+			{{ content_for_layout}}
+	</div>
+
+	<div id="footer-wrapper">
+		<footer class="container">
+			<div class="logo col-xs-4">
+				<a href="/">{{ shop.name }}</a>
+				<span>Copyright © 2014</span>
+			</div>
+
+		 	<ul class="main-menu col-xs-2">
+				{% for link in linklists.main-menu.links %}
+					<li {% if link.active %}class="current"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>
+				{% endfor %}
+				<li><a href="">Wholesale</a></li>
+			</ul>
+			
+			<div class="share col-xs-2">
+				Follow<br>
+				<a class="twitter" target="_blank" href="https://twitter.com/vivazapatabags">twitter</a>
+				<a class="facebook" target="_blank" href="https://www.facebook.com/pages/Viva-Zapata/323170471645">facebook</a>
+			</div>
+
+			<ul class="legal col-xs-2">
+				{% for link in linklists.footer.links %}
+					<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+				{% endfor %}
+			</ul>
+
+			<div class="address col-xs-2" itemscope itemtype="http://schema.org/Organization">
+				<div >
+					<p>
+						<span itemprop="name">…Viva Zapata! Bags</span><br>
+						<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress ">
+							<span itemprop="streetAddress">123 Somestreet St.</span><br>
+							<span itemprop="addressLocality">Brooklyn</span> <span itemprop="addressRegion">NY</span> <span itemprop="postalCode">111111</span>
+						</span>
+					</p>
+				</div>
+			</div>
+
+		</footer> 
+	</div>
+
+	{{ "bootstrap.js"  | asset_url | script_tag }}
+	{{ "lettering.js"  | asset_url | script_tag }}
+	{{ "display.js"  | asset_url | script_tag }}
+
+</div>
+</body>
+</html>
