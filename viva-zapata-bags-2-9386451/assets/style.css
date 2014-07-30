@@ -17,7 +17,7 @@ html, body{
 body{
 	position: relative;
 	font-family: georgia, serif;
-	background: url(bg-splat.png) right 750px no-repeat, url(bg-dec-2.gif) right 200px no-repeat, url(bg-dec-1.gif) left 10px no-repeat, url(background-texture.gif) left top repeat;
+	background: url(image-bg-splat.png) right 750px no-repeat, url(image-bg-dec-2.gif) right 200px no-repeat, url(image-bg-dec-1.gif) left 10px no-repeat, url(image-image-bg-texture.gif) left top repeat;
 	/*background-image: url(background-texture.gif);*/
 	-webkit-font-smoothing: antialiased;
 }
@@ -365,24 +365,24 @@ BREADCRUMB
 /* =================================
 PIC ICON ABOVE HEADERS
 ===================================*/
-.icon-top{
+.image-icon-top{
 	margin-top: 20px;
 	background-position: left top;
 	background-repeat: no-repeat;
-	background-image: url(bg-flags.svg);
+	background-image: url(image-bg-flags.svg);
 	width: 100%;
 	height: 42px;
 	background-size: auto 100%;
 	}
-	.icon-top.zapata-classic{background-image: url(bg-bird.svg);}
-	.icon-top.bandolera-rectangular, .icon-top.bandolera-cantimplora{background-image: url(bg-hearts.svg);}
-	.icon-top.messenger-big-classic, .icon-top.messenger-classic, .icon-top.messenger-carnaval{background-image: url(bg-diamond.svg);}
-	.icon-top.gran-bajo-3-pocket-tote, .icon-top.gran-bajo-4-pocket-tote{background-image: url(bg-plant.svg);}
-	.icon-top.travel-big-shoulderbag, .icon-top.travel-shoulderbag{background-image: url(bg-fly.svg);}
-	.icon-top.colectivo-carryall{background-image: url(bg-sun.svg);}
-	.icon-top.wallet-lasso, .icon-top.wallet-maxi, .icon-top.wallet-mini{background-image: url(bg-butterfly.svg);}
-	.icon-top.clutch, .icon-top.clutch-wristlet{background-image: url(bg-icecream.svg);}
-	.icon-top.little-purses-surprise{background-image: url(bg-pops.svg);}
+	.image-icon-top.zapata-classic{background-image: url(image-bg-bird.svg);}
+	.image-icon-top.bandolera-rectangular, .image-icon-top.bandolera-cantimplora{background-image: url(image-bg-hearts.svg);}
+	.image-icon-top.messenger-big-classic, .image-icon-top.messenger-classic, .image-icon-top.messenger-carnaval{background-image: url(image-bg-diamond.svg);}
+	.image-icon-top.gran-bajo-3-pocket-tote, .image-icon-top.gran-bajo-4-pocket-tote{background-image: url(image-bg-plant.svg);}
+	.image-icon-top.travel-big-shoulderbag, .image-icon-top.travel-shoulderbag{background-image: url(image-bg-fly.svg);}
+	.image-icon-top.colectivo-carryall{background-image: url(image-bg-sun.svg);}
+	.image-icon-top.wallet-lasso, .image-icon-top.wallet-maxi, .image-icon-top.wallet-mini{background-image: url(image-bg-butterfly.svg);}
+	.image-icon-top.clutch, .image-icon-top.clutch-wristlet{background-image: url(image-bg-icecream.svg);}
+	.image-icon-top.little-purses-surprise{background-image: url(image-bg-pops.svg);}
 
 /* =================================
 TOOLBAR
@@ -392,7 +392,7 @@ TOOLBAR
 .utility{
 	position: absolute;
 	right:0;
-	background-image: url(bg-cart.svg);
+	background-image: url(image-bg-cart.svg);
 	background-repeat: repeat-x;
 	z-index: 500;
 	height: 50px;
@@ -417,7 +417,7 @@ TOOLBAR
 		}
 
 	.utility .cart-info{
-		background-image: url(icon-cart.svg);
+		background-image: url(image-icon-cart.svg);
 		background-size: 22px auto;
 		padding-right: 15px;
 		margin-right: 15px;
@@ -427,7 +427,7 @@ TOOLBAR
 		border-width: 0 1px 0 0;
 		}
 	.utility .header-search{
-		background-image: url(icon-search.svg);
+		background-image: url(image-icon-search.svg);
 		background-size: 17px auto;
 		padding-left: 23px;
 		}
@@ -444,7 +444,7 @@ HEADER
 	margin: 0 auto 0 auto;
 	width: 204px;
 	height: 131px;
-	background-image: url(logo-color-2.png);
+	background-image: url(image-logo-color-2.png);
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 	text-indent: -9999px;
@@ -534,7 +534,7 @@ nav.shop-menu{
 		content: " ";
 		width: 8px;
 		height: 39px;
-		background-image: url(menu-triangles-left.png);
+		background-image: url(image-menu-triangles-left.png);
 		position: absolute;
 		left: 8px;
 		}
@@ -542,7 +542,7 @@ nav.shop-menu{
 		content: " ";
 		width: 8px;
 		height: 39px;
-		background-image: url(menu-triangles-right.png);
+		background-image: url(image-menu-triangles-right.png);
 		position: absolute;
 		right: 8px;
 		}
@@ -633,14 +633,14 @@ nav.shop-menu ul {
 HOME
 ===================================*/
 #main-wrapper{
-	background: url(bg-dec-3.gif) left 650px no-repeat;
+	background: url(image-bg-dec-3.gif) left 650px no-repeat;
 	}
 
 
 .hero{
 	margin-top: 10px;
 	min-height: 580px;
-	background-image: url(border-hero.png);
+	background-image: url(image-border-hero.png);
 	background-repeat: repeat-x;
 	background-size: auto 7px;
 	background-position: bottom left;
@@ -713,8 +713,8 @@ HOME
 				display: block;
 				padding: 0 15px;
 				}
-				.hero .promo-right .top .inside{background: url(bg-promo-top.png) center center no-repeat;background-size: 100% auto;}
-				.hero .promo-right .bottom .inside{background: url(bg-promo-bottom.png) center center no-repeat;background-size: 100% auto;}
+				.hero .promo-right .top .inside{background: url(image-bg-promo-top.png) center center no-repeat;background-size: 100% auto;}
+				.hero .promo-right .bottom .inside{background: url(image-bg-promo-bottom.png) center center no-repeat;background-size: 100% auto;}
 				
 				.hero .promo-right .top .inside span,
 				.hero .promo-right .bottom .inside span{
@@ -749,7 +749,7 @@ COLLECTION
 		}
 .collection .grid{
 	margin-top: 2em;
-	background: url(bg-stars.gif) center bottom no-repeat;
+	background: url(image-bg-stars.gif) center bottom no-repeat;
 	}
 
 .collection .pagination{float:right; margin-right: 17px;}
@@ -773,10 +773,10 @@ PRODUCT GID DISPLAY
 			display: inline-block;
 			vertical-align: middle;
 			}
-	.product.p1 .product-thumb{background-image: url(bg-product-1.png);}
-	.product.p2 .product-thumb{background-image: url(bg-product-2.png);}
-	.product.p3 .product-thumb{background-image: url(bg-product-3.png);}
-	.product.p4 .product-thumb{background-image: url(bg-product-4.png);}
+	.product.p1 .product-thumb{background-image: url(image-bg-product-1.png);}
+	.product.p2 .product-thumb{background-image: url(image-bg-product-2.png);}
+	.product.p3 .product-thumb{background-image: url(image-bg-product-3.png);}
+	.product.p4 .product-thumb{background-image: url(image-bg-product-4.png);}
 
 	.product .product-title{
 		margin-top: 15px;
@@ -817,7 +817,7 @@ PRODUCT GID DISPLAY
 ===================================*/
 .collection_4up{
 	margin-top: 3em;
-	background: url(bg-stars.gif) center bottom no-repeat;
+	background: url(image-bg-stars.gif) center bottom no-repeat;
 	clear:both;
 	}
 	.collection_4up h2{
@@ -909,7 +909,7 @@ h2.product-header{
 			height: 26px;
 			background-size: auto 26px;
 			background-repeat: no-repeat;
-			background-image: url(icon-share.png);
+			background-image: url(image-icon-share.png);
 			text-indent: -9999px;
 			cursor: pointer;
 			}
@@ -927,7 +927,7 @@ h2.product-header{
 		background-size: auto 100%;
 		background-position: left top;
 		background-repeat: no-repeat;
-		background-image: url(bg-single-product.png);
+		background-image: url(image-bg-single-product.png);
 		text-align: center;
 		}
 	.product-featured-image img{
@@ -1148,7 +1148,7 @@ FOOTER
 #footer-wrapper{
 	height: 198px;
 	margin-top: 5em;
-	background: url(bg-foot-dec-1.gif) left bottom no-repeat, url(bg-flag.gif) right top no-repeat, url(bg-footer.gif) left top repeat;
+	background: url(image-bg-foot-dec-1.gif) left bottom no-repeat, url(image-bg-flag.gif) right top no-repeat, url(image-bg-footer.gif) left top repeat;
 	}
 #footer-wrapper,
 #footer-wrapper a{
@@ -1178,7 +1178,7 @@ footer .logo{
 		display: block;
 		margin: 0;
 		height: 158px;
-		background-image: url(logo-white-2.png);
+		background-image: url(image-logo-white-2.png);
 		background-repeat: no-repeat;
 		background-size: 158px auto;
 		text-indent: -9999px;
@@ -1190,7 +1190,7 @@ footer .legal,
 footer .address{
 	padding-left: 30px;
 	height: 158px;
-	background-image: url(rule-vertical-white.png);
+	background-image: url(image-rule-vertical-white.png);
 	background-repeat: repeat-y;
 	background-position: left top;
 	background-size: 3px auto;
@@ -1206,6 +1206,6 @@ footer .share a{
 	background-size: 25px 25px;
 	text-indent: -9999px;
 	}
-	footer .share a.facebook{background-image: url(share-fb.svg);}
-	footer .share a.twitter{background-image: url(share-twitter.svg);}
+	footer .share a.facebook{background-image: url(image-share-fb.svg);}
+	footer .share a.twitter{background-image: url(image-share-twitter.svg);}
 
