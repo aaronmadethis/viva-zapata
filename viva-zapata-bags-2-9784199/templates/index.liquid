@@ -24,7 +24,7 @@
 
 {% assign collection = collections.new-arrivals %}
 <div class="container collection_4up no-price">
-	<div class="center"><img src="{{ 'decoration-leaf.svg' | asset_url }}"></div>
+	<div class="center"><img src="{{ 'image-decoration-leaf.svg' | asset_url }}"></div>
 	<h2>New Arrivals</h2>
 		{% for product in collection.products limit:4  %}
 			{% include 'product-loop' %}

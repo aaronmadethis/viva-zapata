@@ -17,7 +17,7 @@ html, body{
 body{
 	position: relative;
 	font-family: georgia, serif;
-	background: url(image-bg-splat.png) right 750px no-repeat, url(image-bg-dec-2.gif) right 200px no-repeat, url(image-bg-dec-1.gif) left 10px no-repeat, url(image-image-bg-texture.gif) left top repeat;
+	background: url(image-bg-splat.png) right 750px no-repeat, url(image-bg-dec-2.gif) right 200px no-repeat, url(image-bg-dec-1.gif) left 10px no-repeat, url(image-bg-texture.gif) left top repeat;
 	/*background-image: url(background-texture.gif);*/
 	-webkit-font-smoothing: antialiased;
 }
@@ -444,7 +444,7 @@ HEADER
 	margin: 0 auto 0 auto;
 	width: 204px;
 	height: 131px;
-	background-image: url(image-logo-color-2.png);
+	background-image: url(image-logo-color.png);
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 	text-indent: -9999px;
@@ -1178,7 +1178,7 @@ footer .logo{
 		display: block;
 		margin: 0;
 		height: 158px;
-		background-image: url(image-logo-white-2.png);
+		background-image: url(image-logo-white.png);
 		background-repeat: no-repeat;
 		background-size: 158px auto;
 		text-indent: -9999px;
