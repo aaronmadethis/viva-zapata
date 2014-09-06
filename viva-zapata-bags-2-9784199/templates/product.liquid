@@ -54,9 +54,9 @@
 				<img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
 			</div>
 			<div class="product-img-list col-xs-11">
-				{% for image in product.images | offset:1 %}       
-					<div class="product-img left {% cycle '','','last' %}">
-						<a href="{{ image.src | product_img_url: 'original' }}">
+				{% for image in product.images %}       
+					<div class="product-img transition-2 {% cycle 't1 selected','t2','t3','t4' %}">
+						<a href="{{ image.src | product_img_url: 'original' }}" data-url="{{ image.src | product_img_url: 'grande' }}">
 							<img src="{{ image.src | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" />
 						</a>
 					</div>

@@ -63,6 +63,30 @@ jQuery(document).ready(function($) {
 
 
 	/* ---------------------------------------------------------------------------------------
+	PROJECT THUMBNAIL IMAGES
+	--------------------------------------------------------------------------------------- */
+	function change_image(img_url){
+		var new_img = img_url;
+
+		$('.product-featured-image img').animate({opacity: 0},300, function(){
+			$(this).attr('src', new_img);
+			imagesLoaded( '.product-featured-image', function() {
+				$('.product-featured-image img').animate({opacity: 1},300);
+			});
+		});
+	}
+
+	$('.product-img a').click(function(e){
+		var img_url = $(this).attr('data-url');
+		change_image(img_url);
+		e.preventDefault();
+		$('.product-img.selected').removeClass('selected');
+		$(this).parent().addClass('selected');
+	});
+
+
+
+	/* ---------------------------------------------------------------------------------------
 	TWITTER SHARE
 	--------------------------------------------------------------------------------------- */
 	$('.popup').click(function(e) {
